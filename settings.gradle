@@ -1,2 +1,3 @@
 rootProject.name = 'mh-autotests'
+include 'api-tests'
 
