@@ -1,6 +1,5 @@
 package ru.mh.api.services;
 
-import io.restassured.response.Response;
 import ru.mh.api.assertions.AssertableResponse;
 import ru.mh.api.payloads.UserPayload;
 

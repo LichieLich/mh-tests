@@ -13,4 +13,9 @@ public class StatusCodeCondition implements Condition {
     public void check(Response response) {
         response.then().assertThat().statusCode(statusCode);
     }
+
+    @Override
+    public String toString() {
+        return "status code is " + statusCode;
+    }
 }
