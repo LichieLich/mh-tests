@@ -1,5 +1,6 @@
 package ru.mh.api.assertions;
 
+import io.qameta.allure.Step;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ public class AssertableResponse {
 
     private final Response response;
 
+    @Step("API response should have: {condition}")
     public AssertableResponse shouldHave(Condition condition) {
         log.info("Checking condition: {}", condition);
         condition.check(response);

@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id "io.freefair.lombok" version "6.6-rc1"
 }
 
 group 'training'
@@ -11,7 +10,8 @@ repositories {
 }
 
 dependencies {
-    implementation  'io.rest-assured:rest-assured:5.3.0'
+    // Если использовать более свежую версию, то всё работает, но aspectj выдаёт неприятную ошибку
+    implementation  'io.rest-assured:rest-assured:4.2.0'
     testImplementation "org.testng:testng:6.13.1"
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
     implementation 'com.github.javafaker:javafaker:1.0.2'
@@ -19,15 +19,14 @@ dependencies {
     testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
     implementation group: 'org.aeonbits.owner', name: 'owner', version: '1.0.4'
+    // Не работает с более свежими версиями
+    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.12.1'
 
 }
 
 test {
     useTestNG()
 
-//    options {
-//        systemProperties(System.getProperties())
-//    }
 //    systemProperties System.getProperties()
 
     testLogging {
@@ -38,4 +37,11 @@ test {
 
     // Запуск тестов даже если код не менялся
     test.outputs.upToDateWhen { false }
+}
+
+allure {
+    version = '2.8.0'
+    aspectjweaver = 'true'
+    configuration = 'implementation'
+    autoconfigure = true
 }
