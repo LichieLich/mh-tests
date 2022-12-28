@@ -11,20 +11,20 @@ import ru.mh.api.conditions.Condition;
 @Slf4j
 public class AssertableResponse {
 
-    private final Response response;
+  private final Response response;
 
-    @Step("API response should have: {condition}")
-    public AssertableResponse shouldHave(Condition condition) {
-        log.info("Checking condition: {}", condition);
-        condition.check(response);
-        return this;
-    }
+  @Step("API response should have: {condition}")
+  public AssertableResponse shouldHave(Condition condition) {
+    log.info("Checking condition: {}", condition);
+    condition.check(response);
+    return this;
+  }
 
     public <T> T asPojo(Class<T> tClass) {
-        return response.as(tClass);
-    }
+    return response.as(tClass);
+  }
 
-    public Headers headers() {
-        return response.getHeaders();
-    }
+  public Headers headers() {
+    return response.getHeaders();
+  }
 }

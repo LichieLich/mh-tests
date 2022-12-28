@@ -13,4 +13,8 @@ public interface ProjectConfig extends Config {
     String locale();
 
     Boolean logging();
+
+    String apiLogin();
+
+    String apiPassword();
 }

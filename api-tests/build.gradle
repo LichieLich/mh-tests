@@ -21,14 +21,15 @@ dependencies {
     implementation group: 'org.aeonbits.owner', name: 'owner', version: '1.0.4'
     // Не работает с более свежими версиями
     implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.12.1'
+
     runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.19'
 
 }
 
 test {
     useTestNG()
-    jvmArgs "-noverify"
-//    systemProperties System.getProperties()
+//    jvmArgs "-noverify"
+    systemProperties System.getProperties()
 
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"

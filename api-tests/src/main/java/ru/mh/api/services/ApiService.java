@@ -16,21 +16,22 @@ import java.util.List;
 
 public class ApiService {
 
-    protected RequestSpecification setup() {
-        return RestAssured
-                .given()
-                .auth().basic("mhuser", "mhtest")
-                .contentType(ContentType.JSON)
-                .filters(getFilters());
+  private final ProjectConfig config = ConfigFactory.create(ProjectConfig.class, System.getProperties());
+
+  protected RequestSpecification setup() {
+    return RestAssured
+        .given()
+        .auth().basic(config.apiLogin(), config.apiPassword())
+        .contentType(ContentType.JSON)
+        .filters(getFilters());
+  }
+
+  private List<Filter> getFilters() {
+
+    if (config.logging()) {
+      return Arrays.asList(new RequestLoggingFilter(), new ResponseLoggingFilter(), new AllureRestAssured());
     }
 
-    private List<Filter> getFilters() {
-        ProjectConfig config = ConfigFactory.create(ProjectConfig.class, System.getProperties());
-
-        if(config.logging()) {
-            return Arrays.asList(new RequestLoggingFilter(), new ResponseLoggingFilter(), new AllureRestAssured());
-        }
-
-        return Collections.singletonList(new AllureRestAssured());
-    }
+    return Collections.singletonList(new AllureRestAssured());
+  }
 }

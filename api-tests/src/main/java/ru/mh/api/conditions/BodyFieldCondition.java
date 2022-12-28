@@ -14,7 +14,7 @@ public class BodyFieldCondition implements Condition {
     @Override
     public void check(Response response) {
         Object rpr = response.getClass().getFields();
-        System.out.println(rpr.toString());
+        System.out.println(rpr);
         response.then().assertThat().body(jsonPath, matcher);
     }
 
