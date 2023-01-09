@@ -19,6 +19,7 @@ public class BaseUiTest {
 
   @AfterMethod
   public void tearDown() {
+    Selenide.executeJavaScript("Auth.resetAuth()");
     Selenide.clearBrowserCookies();
   }
 
