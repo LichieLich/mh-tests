@@ -1,6 +1,7 @@
 package ru.mh.api.services;
 
 import io.qameta.allure.Step;
+import io.restassured.RestAssured;
 import ru.mh.api.assertions.AssertableResponse;
 import ru.mh.api.payloads.UserPayload;
 

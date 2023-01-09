@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath "io.freefair.gradle:lombok-plugin:6.6-rc1"
-        classpath "io.qameta.allure:allure-gradle:2.8.0"
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
 
     }
 }
