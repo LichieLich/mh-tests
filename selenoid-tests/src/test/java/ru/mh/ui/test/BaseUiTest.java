@@ -13,8 +13,8 @@ public class BaseUiTest {
   @BeforeSuite
   public void setUp() {
 //    Запуск на локальном браузере без Selenoid
-//    Configuration.browser = "chrome";
-    Configuration.browser = System.getProperty("browser");
+    Configuration.browser = "chrome";
+//    Configuration.browser = System.getProperty("browser");
 //    Configuration.browser = "ru.mh.ui.SelenoidDriverProvider";
   }
 
