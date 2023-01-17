@@ -3,7 +3,7 @@ package ru.mh.ui.test;
 import org.testng.annotations.Test;
 import ru.mh.api.payloads.UserPayload;
 import ru.mh.api.services.UserApiService;
-import ru.mh.ui.MainPage;
+import ru.mh.ui.pages.MainPage;
 
 import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.text;

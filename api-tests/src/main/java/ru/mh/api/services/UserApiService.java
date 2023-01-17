@@ -14,4 +14,12 @@ public class UserApiService extends ApiService {
                 .when()
                 .post("register/"));
     }
+
+    @Step
+    public AssertableResponse login(UserPayload user) {
+        return new AssertableResponse(setup()
+            .body(user)
+            .when()
+            .post("auth/"));
+    }
 }

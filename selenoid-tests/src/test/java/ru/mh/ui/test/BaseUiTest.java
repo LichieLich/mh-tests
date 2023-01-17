@@ -3,6 +3,7 @@ package ru.mh.ui.test;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.JavascriptException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -20,8 +21,13 @@ public class BaseUiTest {
 
   @AfterMethod
   public void tearDown() {
-    Selenide.executeJavaScript("Auth.resetAuth()");
+    // Выполнение этого скрипта в Firefox работает, но вызывает ошибку. Поэтому завернул в try-catch  ¯\_(ツ)_/¯
+    try {
+      Selenide.executeJavaScript("Auth.resetAuth()");
+    } catch (JavascriptException e) {}
+
     Selenide.clearBrowserCookies();
+    Selenide.closeWebDriver();
   }
 
 //  Для переключения пейджи без перехода по ссылке

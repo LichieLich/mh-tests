@@ -1,4 +1,5 @@
 rootProject.name = 'mh-autotests'
 include 'api-tests'
 include 'selenoid-tests'
+include 'playwright-tests'
 

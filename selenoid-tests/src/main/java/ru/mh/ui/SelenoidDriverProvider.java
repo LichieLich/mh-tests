@@ -19,13 +19,13 @@ public class SelenoidDriverProvider implements WebDriverProvider {
   @Override
   public WebDriver createDriver(@Nonnull Capabilities capabilities) {
     DesiredCapabilities browser = new DesiredCapabilities();
-    browser.setBrowserName("chrome");
+    browser.setBrowserName("firefox");
     browser.setVersion("108.0");
     browser.setCapability("enableVNC", true);
 
     try {
       RemoteWebDriver driver = new RemoteWebDriver(
-          URI.create("ip selenoid:4444/wd/hub").toURL(),
+          URI.create("http://192.168.0.33:4444/wd/hub").toURL(),
           browser
       );
       driver.manage().window().setSize(new Dimension(1280, 1024));

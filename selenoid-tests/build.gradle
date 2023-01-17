@@ -23,7 +23,10 @@ dependencies {
 }
 
 test {
-    useTestNG()
+    useTestNG() {
+        parallel = 'method'
+        threadCount = 2
+    }
 }
 
 allure {
