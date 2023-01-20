@@ -19,7 +19,8 @@ public class BaseTest {
   @BeforeSuite
   public void setUp() {
     Playwright playwright = Playwright.create();
-      browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome"));
+//      browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome"));
+      browser = playwright.firefox().launch();
   }
 
   @BeforeMethod
